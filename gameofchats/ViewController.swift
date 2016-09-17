@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import Firebase
 
-class ViewController: UIViewController {
+
+// 使用UITable!!
+class ViewController: UITableViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // 建立一個左上角的logoutButton，非常神奇啊！
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",style: .Plain, target: self, action: #selector(handleLogout))
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func handleLogout(){
+        // 按下"Logout" button時，則跳到Login ViewCOntroller!
+        let loginController = LoginController()
+        presentViewController(loginController, animated: true, completion: nil)
     }
-
 
 }
 
